@@ -1,2 +1,2 @@
-# restful-guestbook-2
-RESTful Guestbook Walkthrough.  Spring 2 version.
+# web-guestbook-2
+Web Guestbook Walkthrough.  Spring 2 version.
