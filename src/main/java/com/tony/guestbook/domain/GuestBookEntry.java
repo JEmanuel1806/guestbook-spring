@@ -1,16 +1,15 @@
 package com.tony.guestbook.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
+@Table (name="entries")
 public class GuestBookEntry {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name="entry_id")
     private Integer id;
 
     @NotEmpty
