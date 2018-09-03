@@ -4,10 +4,7 @@ import com.tony.guestbook.domain.GuestBookEntry;
 import com.tony.guestbook.service.GuestBookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,11 @@ public class GuestBookController {
     @DeleteMapping ("/comment/{id}")
     public void deleteGuestBookEntryById (@PathVariable ("id") Integer id) {
         this.guestBookService.deleteGuestBookEntryById (id);
+    }
+
+    @PostMapping ("/add")
+    public void addComment (@RequestBody GuestBookEntry guestBookEntry) {
+        this.guestBookService.save (guestBookEntry);
     }
 
 }
