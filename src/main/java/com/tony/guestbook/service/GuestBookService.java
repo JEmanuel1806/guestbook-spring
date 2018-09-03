@@ -22,4 +22,7 @@ public class GuestBookService {
         return this.guestBookEntryRepository.findGuestBookEntryById (id);
     }
 
+    public List<GuestBookEntry> findGuestBookEntriesByUser (String user) {
+        return this.guestBookEntryRepository.findGuestBookEntriesByUser (user);
+    }
 }

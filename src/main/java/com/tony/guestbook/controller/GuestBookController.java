@@ -26,4 +26,9 @@ public class GuestBookController {
         return this.guestBookService.findGuestBookEntryById (id);
     }
 
+    @GetMapping ("/user/{user}")
+    public List <GuestBookEntry> findGuestBookEntriesByUser (@PathVariable ("user") String user) {
+        return this.guestBookService.findGuestBookEntriesByUser (user);
+    }
+
 }

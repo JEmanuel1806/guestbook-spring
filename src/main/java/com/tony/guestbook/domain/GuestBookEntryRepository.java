@@ -11,4 +11,6 @@ public interface GuestBookEntryRepository extends CrudRepository <GuestBookEntry
 
     GuestBookEntry findGuestBookEntryById (Integer id);
 
+    List<GuestBookEntry> findGuestBookEntriesByUser (String user);
+
 }
