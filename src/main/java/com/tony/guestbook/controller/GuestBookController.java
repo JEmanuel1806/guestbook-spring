@@ -39,4 +39,9 @@ public class GuestBookController {
         this.guestBookService.save (guestBookEntry);
     }
 
+    @PostMapping ("/update")
+    public void updateComment (@RequestBody GuestBookEntry guestBookEntry) {
+        this.guestBookService.save (guestBookEntry);
+    }
+
 }
