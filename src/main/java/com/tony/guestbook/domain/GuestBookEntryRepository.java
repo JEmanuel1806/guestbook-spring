@@ -1,6 +1,7 @@
 package com.tony.guestbook.domain;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,5 +13,8 @@ public interface GuestBookEntryRepository extends CrudRepository <GuestBookEntry
     GuestBookEntry findGuestBookEntryById (Integer id);
 
     List<GuestBookEntry> findGuestBookEntriesByUser (String user);
+
+    @Transactional
+    void deleteGuestBookEntryById (Integer id);
 
 }

@@ -25,4 +25,8 @@ public class GuestBookService {
     public List<GuestBookEntry> findGuestBookEntriesByUser (String user) {
         return this.guestBookEntryRepository.findGuestBookEntriesByUser (user);
     }
+
+    public void deleteGuestBookEntryById (Integer id) {
+        this.guestBookEntryRepository.deleteGuestBookEntryById (id);
+    }
 }
