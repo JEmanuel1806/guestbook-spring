@@ -1,4 +1,4 @@
-package com.tony.guestbook;
+package com.tony.guestbook.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
 public class GuestBookEntry {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty
