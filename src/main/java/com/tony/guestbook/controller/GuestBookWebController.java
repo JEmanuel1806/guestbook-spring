@@ -61,4 +61,36 @@ public class GuestBookWebController {
         }
     }
 
+    @GetMapping ("update/{id}")
+    public String editComment (Model model, @PathVariable Integer id) {
+
+        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Change the Comment");
+        model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
+        model.addAttribute (NEW_ENTRY_TEMPLATE_ID, this.guestBookService.findGuestBookEntryById (id));
+
+        return GUESTBOOK_TEMPLATE;
+    }
+
+    @PostMapping ("update/{id}")
+    public String saveComment (Model model,
+                               @PathVariable Integer id,
+                               @Valid @ModelAttribute (NEW_ENTRY_TEMPLATE_ID) GuestBookEntry newEntry,
+                               BindingResult bindingResult) {
+
+        if (!bindingResult.hasErrors ()) {
+            GuestBookEntry current = this.guestBookService.findGuestBookEntryById (id);
+
+            current.setUser (newEntry.getUser ());
+            current.setComment (newEntry.getComment ());
+
+            this.guestBookService.save (current);
+
+            return HOMEPAGE_REDIRECT;
+        }
+        else {
+            model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Correct the Comment");
+            model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
+            return GUESTBOOK_TEMPLATE;
+        }
+    }
 }
