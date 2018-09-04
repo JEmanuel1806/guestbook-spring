@@ -23,12 +23,15 @@ public class GuestBookWebController {
     private static final String ENTRIES_TEMPLATE_ID = "entries";
     private static final String NEW_ENTRY_TEMPLATE_ID = "newEntry";
 
+    private static final String GUESTBOOK_FORM_HEADER_ID = "formHeader";
+
     private static final String GUESTBOOK_TEMPLATE = "guestbook";
     private static final String HOMEPAGE_REDIRECT = "redirect:/";
 
     @GetMapping ("/")
     public String displayGuestBook (Model model) {
 
+        model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Add a New Comment");
         model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
         model.addAttribute (NEW_ENTRY_TEMPLATE_ID, new GuestBookEntry ());
 
@@ -52,6 +55,7 @@ public class GuestBookWebController {
             return HOMEPAGE_REDIRECT;
         }
         else {
+            model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Please Correct the Comment");
             model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
             return GUESTBOOK_TEMPLATE;
         }
