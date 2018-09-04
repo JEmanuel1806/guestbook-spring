@@ -40,6 +40,8 @@
 
         <input type="submit" value="Submit" />
         <input type="reset" value="Reset" />
+        <p class="warning" th:if="${#fields.hasErrors('user')}">User cannot be empty.</p>
+        <p class="warning" th:if="${#fields.hasErrors('comment')}">Comment cannot be empty.</p>
     </form>
 
 </body>
