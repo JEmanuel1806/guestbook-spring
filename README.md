@@ -1,2 +1,5 @@
-# web-guestbook-2
-Web Guestbook Walkthrough.  Spring 2 version.
+# Spring Guestbook
+
+Run with Maven:
+
+$ mvn spring-boot:run
