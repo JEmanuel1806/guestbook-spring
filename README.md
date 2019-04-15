@@ -7,7 +7,7 @@ web-based and one via an API. See the associated Spring
 tutorial for details of the API and how to use it.
 
 Persistence can be added by installed MySQL, modifying
-the dependencies in `omp.xml` and tweaking
+the dependencies in `pom.xml` and tweaking
 the settings in the `application.properties` file (example
 settings are commented-out in that file).
 
